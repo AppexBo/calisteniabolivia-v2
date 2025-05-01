@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_custom" inherit_id="sale.report_saleorder" name="Custom Sale Order Report">
+        <!-- Esto reemplaza completamente el reporte original -->
+        <xpath expr="." position="replace">
+        
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="donnelmotorsrl_reports.layout_standart_reportes_saleorder">
+                        <t t-set="paperformat" t-value="'paper_report_sale_troquel'"/>
+                        <div class="page" >
+                            <style type="text/css">
+                                thead, tbody, th, tr, td {
+                                    border: none !important;
+                                }
+                            </style>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    
+                                    <!-- Is there a discount on at least one line? -->
+                                    <t t-set="lines_to_report" t-value="o._get_order_lines_to_report()"/>
+                                    <t t-set="display_discount" t-value="any(l.discount for l in lines_to_report)"/>
+                                    
+                                    <table class="table table-sm o_main_table table-borderless mt-4">
+                                        <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                                        <thead style="display: table-row-group">
+                                            <tr>
+                                                <th name="th_description" class="text-start">Descripción</th>
+                                                <th name="th_quantity" class="text-end">Cantidad</th>
+                                                <th name="th_priceunit" class="text-end">Precio Unitario</th>
+                                                <th name="th_discount" t-if="display_discount" class="text-end">
+                                                    <span>Descuento</span>
+                                                </th>
+                                                <th name="th_taxes" class="text-end">Impuestos</th>
+                                                <th name="th_subtotal" class="text-end">
+                                                    <span>Importe</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="sale_tbody">
+
+                                            <t t-set="current_subtotal" t-value="0"/>
+
+                                            <t t-foreach="lines_to_report" t-as="line">
+
+                                                <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"/>
+
+                                                <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                                    <t t-if="not line.display_type">
+                                                        <td name="td_name"><span t-field="line.name"/></td>
+                                                        <td name="td_quantity" class="text-end">
+                                                            <span t-field="line.product_uom_qty"/>
+                                                            <span t-field="line.product_uom"/>
+                                                            <span t-if="line.product_packaging_id">
+                                                                (<span t-field="line.product_packaging_qty" t-options="{&quot;widget&quot;: &quot;integer&quot;}"/> <span t-field="line.product_packaging_id"/>)
+                                                            </span>
+                                                        </td>
+                                                        <td name="td_priceunit" class="text-end">
+                                                            <span t-field="line.price_unit"/>
+                                                        </td>
+                                                        <td t-if="display_discount" class="text-end">
+                                                            <span t-field="line.discount">-</span>
+                                                        </td>
+                                                        <t t-set="taxes" t-value="', '.join([(tax.invoice_label or tax.name) for tax in line.tax_id])"/>
+                                                        <td name="td_taxes" t-attf-class="text-end {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}">
+                                                            <span t-out="taxes">Impuesto 15%</span>
+                                                        </td>
+                                                        <td t-if="not line.is_downpayment" name="td_subtotal" class="text-end o_price_total">
+                                                            <span t-field="line.price_subtotal"/>
+                                                        </td>
+                                                    </t>
+                                                    <t t-elif="line.display_type == 'line_section'">
+                                                        <td name="td_section_line" colspan="99">
+                                                            <span t-field="line.name"/>
+                                                        </td>
+                                                        <t t-set="current_section" t-value="line"/>
+                                                        <t t-set="current_subtotal" t-value="0"/>
+                                                    </t>
+                                                    <t t-elif="line.display_type == 'line_note'">
+                                                        <td name="td_note_line" colspan="99">
+                                                            <span t-field="line.name"/>
+                                                        </td>
+                                                    </t>
+                                                </tr>
+
+                                                <t t-if="current_section and (line_last or lines_to_report[line_index+1].display_type == 'line_section') and not line.is_downpayment">
+                                                    <tr class="is-subtotal text-end">
+                                                        <td name="td_section_subtotal" colspan="99">
+                                                            <strong class="mr16">Subtotal</strong>
+                                                            <span t-out="current_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}">31.05</span>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                            
+                                        </tbody>
+                                    </table>
+                                    <div class="clearfix" name="so_total_summary">
+                                        <div id="total" class="row" name="total">
+                                            <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
+                                                <table class="table table-sm table-borderless">
+                                                    <!-- Tax totals -->
+                                                    <t t-set="tax_totals" t-value="o.tax_totals"/>
+                                                    <t t-call="sale.document_tax_totals"/>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    
+</odoo>
