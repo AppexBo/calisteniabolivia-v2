@@ -34,7 +34,11 @@ class ProjectTask(models.Model):
 class SecuenciaMes(models.Model):
     _inherit = 'sale.order'
 
-    mes_secuencia = fields.Char(string="Secuencia por Mes", compute='_compute_mes_secuencia', store=True)
+    mes_secuencia = fields.Char(
+        string="Secuencia por Mes",
+        compute='_compute_mes_secuencia',
+        store=True
+    )
 
     @api.depends('date_order', 'journal_id', 'journal_id.type')
     def _compute_mes_secuencia(self):
@@ -46,20 +50,19 @@ class SecuenciaMes(models.Model):
                 start_of_month = record.date_order.replace(day=1)
                 end_of_month = start_of_month + relativedelta(months=1)
                 
-                # Dominio para contar movimientos en el mismo mes y tipo de diario
+                # Dominio para contar órdenes del mismo tipo de diario y mes
                 domain = [
                     ('date_order', '>=', start_of_month),
                     ('date_order', '<', end_of_month),
-                    ('journal_id.type', '=', record.journal_id.type),  # Filtrar por tipo de diario
+                    ('journal_id.type', '=', record.journal_id.type),
                 ]
-                # Excluir el registro actual si ya existe
                 if record.id:
                     domain.append(('id', '!=', record.id))
                 
-                # Contar los movimientos previos en este mes y tipo de diario, y sumar 1
-                ultimo_numero = self.env['sale.order'].search_count(domain) + 1
-                secuencial = f"{ultimo_numero:05d}"  # Formato '00001', '00002', etc.
-                record.mes_secuencia = f"-{mes}-{secuencial}"
+                # Calcular secuencia
+                count = self.env['sale.order'].search_count(domain) + 1
+                secuencia = f"{count:05d}"
+                record.mes_secuencia = f"-{mes}-{secuencia}"
             else:
                 record.mes_secuencia = ''
 
