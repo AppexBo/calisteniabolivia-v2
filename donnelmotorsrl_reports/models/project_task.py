@@ -73,7 +73,7 @@ class SaleOrder(models.Model):
                 secuencia = f"{count:05d}"  # formato 00001, 00002, etc.
                 record.mes_secuencia = f"{anio}-{mes}-{secuencia}"
             else:
-                record.mes_secuencia = ''
+                record.mes_secuencia = 'HOLA MUNDO'
 
     @api.model
     def create(self, vals):
