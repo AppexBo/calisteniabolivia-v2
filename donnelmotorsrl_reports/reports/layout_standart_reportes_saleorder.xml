@@ -26,7 +26,7 @@
                 <br/>
                 <table style="width:100%;">
                     <tr style="font-size: 20px;" colspan="2">
-                        <td><strong>ORDEN DE TRABAJO <t t-esc="codigo_A1_or_A2"/> <t t-esc="mes_secuencia"/> </strong></td>
+                        <td><strong>ORDEN DE TRABAJO --------- <t t-esc="codigo_A1_or_A2"/> <t t-esc="mes_secuencia"/> </strong></td>
                     </tr>
                     <tr>
                         <td style="font-size: 15px;">
