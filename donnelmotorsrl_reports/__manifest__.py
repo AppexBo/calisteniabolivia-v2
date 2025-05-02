@@ -5,7 +5,7 @@
 	"depends" : [
 		'base',
 		'project',
-        'sale'
+        'sale',
 	],
 	"author": "AppexBo",
 	'summary': 'Los reportes solicitados',
