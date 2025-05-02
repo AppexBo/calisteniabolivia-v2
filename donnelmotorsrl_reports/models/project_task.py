@@ -54,7 +54,6 @@ class SecuenciaMes(models.Model):
                 domain = [
                     ('date_order', '>=', start_of_month),
                     ('date_order', '<', end_of_month),
-                    ('journal_id.type', '=', record.journal_id.type),
                 ]
                 if record.id:
                     domain.append(('id', '!=', record.id))
