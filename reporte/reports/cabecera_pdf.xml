@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <span t-field="state_id"/> - <span t-field="company.country_id"/>
+                                        <span t-field="company.state_id.name"/> - <span t-field="company.country_id"/>
                                     </td>
                                 </tr>
                                 

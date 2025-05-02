@@ -68,23 +68,5 @@ class Configuracion(models.Model):
         record = super(Configuracion, self).create(vals)
         record._compute_mes_secuencia()  # Asegurar que se calcule al crear
         return record
-    
-    
-    ciudad = fields.Char(
-        string='Ciudad',
-        compute="_compute_ciudad",
-        store=True
-    )
 
-    state_id = fields.Many2one('res.country.state', string='Estado/Departamento')  # Asegúrate de tener esto definido
-
-    @api.depends('state_id.name')
-    def _compute_ciudad(self):
-        for record in self:
-            if record.state_id and record.state_id.name:
-                caracter_a_eliminar = " (BO)"
-                cadena_sin_caracter = record.state_id.name.replace(caracter_a_eliminar, "")
-                record.ciudad = cadena_sin_caracter
-            else:
-                record.ciudad = ""
     
