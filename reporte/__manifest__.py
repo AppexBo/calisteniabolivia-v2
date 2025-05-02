@@ -16,10 +16,7 @@
       'reports/boton_imprimir_pdf.xml',
       'reports/cabecera_pdf.xml',
       'reports/cuerpo_pdf.xml',
-      #'views/boton_imprimir_pdf_view.xml',
       'views/campo_adicional_razon_social_micelaneo.xml',
-    
-     
     ],
     'installable': True,
 }
