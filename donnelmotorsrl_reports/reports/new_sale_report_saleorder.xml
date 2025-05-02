@@ -7,7 +7,7 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="donnelmotorsrl_reports.layout_standart_reportes_saleorder">
-                        <t t-set="paperformat" t-value="donnelmotorsrl_reports.paper_report_sale_troquel"/>
+                        <t t-set="paperformat" t-value="'paper_report_sale_troquel'"/>
                         <div class="page" >
                             <style type="text/css">
                                 thead, tbody, th, tr, td {
