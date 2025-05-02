@@ -4,7 +4,8 @@
 	"category" : "",
 	"depends" : [
 		'base',
-		'project'
+		'project',
+        'sale'
 	],
 	"author": "AppexBo",
 	'summary': 'Los reportes solicitados',
