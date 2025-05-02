@@ -42,8 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                      
-                                        <t t-if="company.city"><span t-field="company.city"/></t> - <span t-field="company.country_id"/>
+                                        <span t-field="company.state_id"/> - <span t-field="company.country_id"/>
                                     </td>
                                 </tr>
                                 
