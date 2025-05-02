@@ -32,7 +32,7 @@ class ProjectTask(models.Model):
                 
 
 class SecuenciaMes(models.Model):
-    _inherit = 'account.move'
+    _inherit = 'sale.order'
 
     mes_secuencia = fields.Char(string="Secuencia por Mes", compute='_compute_mes_secuencia', store=True)
 
@@ -57,7 +57,7 @@ class SecuenciaMes(models.Model):
                     domain.append(('id', '!=', record.id))
                 
                 # Contar los movimientos previos en este mes y tipo de diario, y sumar 1
-                ultimo_numero = self.env['account.move'].search_count(domain) + 1
+                ultimo_numero = self.env['sale.order'].search_count(domain) + 1
                 secuencial = f"{ultimo_numero:05d}"  # Formato '00001', '00002', etc.
                 record.mes_secuencia = f"-{mes}-{secuencial}"
             else:
