@@ -2,7 +2,7 @@ from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
 from num2words import num2words
-
+from datetime import datetime
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -44,13 +44,15 @@ class SecuenciaMes(models.Model):
     def _compute_mes_secuencia(self):
         for record in self:
             if record.date_order:
-                mes = record.date_order.strftime('%m')
-                start_of_month = record.date_order.replace(day=1)
-                end_of_month = start_of_month + relativedelta(months=1)
+                # Convertir a fecha para evitar errores por hora
+                fecha = record.date_order.date()
+                mes = fecha.strftime('%m')
+                start_of_month = fecha.replace(day=1)
+                end_of_month = (start_of_month + relativedelta(months=1))
 
                 domain = [
-                    ('date_order', '>=', start_of_month),
-                    ('date_order', '<', end_of_month),
+                    ('date_order', '>=', datetime.combine(start_of_month, datetime.min.time())),
+                    ('date_order', '<', datetime.combine(end_of_month, datetime.min.time())),
                 ]
                 if record.id:
                     domain.append(('id', '!=', record.id))
