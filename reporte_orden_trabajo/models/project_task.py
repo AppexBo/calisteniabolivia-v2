@@ -14,7 +14,12 @@ class SecuenciaMes(models.Model):
         compute='_compute_mes_secuencia',
         store=True
     )
-
+    def number_to_word(self, number: float):
+        decimal_part = int(round(number % 1, 2) * 100)
+        integer_part = int(number)
+        # get actual language
+        lang = self.env.context.get('lang', 'es_ES')
+        return f"{num2words(integer_part, lang=lang)} con {decimal_part}/100 {self.currency_id.symbol}"
     @api.depends('date_order')
     def _compute_mes_secuencia(self):
         for record in self:
