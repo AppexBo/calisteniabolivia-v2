@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-         <record id="formato_papel" model="report.paperformat">
+         <record id="formato_papel_sale_order" model="report.paperformat">
                 <field name="name">Orden de trabajo</field>
                 <field name="default" eval="False"/>
                 <field name="format">custom</field>

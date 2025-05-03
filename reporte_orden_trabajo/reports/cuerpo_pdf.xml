@@ -3,7 +3,7 @@
     <template id="cuerpo_pdf">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="reporte.cabecera_pdf">
+                <t t-call="reporte_orden_trabajo.cabecera_pdf">
                     <div class="page">
                         <style type="text/css">
                             thead, tbody, th, tr, td {
