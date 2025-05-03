@@ -112,6 +112,23 @@
                                         <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
                                     </td>
                                 </tr>
+                                <t t-foreach="o.invoice_ids" t-as="factura">
+                                    <tr>
+                                        <td>
+                                            <strong>Nro Factura:</strong>
+                                            <span t-esc="factura.name"/>
+                                        </td>
+                                        <td>
+                                            <strong>Fecha:</strong>
+                                            <span t-esc="factura.invoice_date"/>
+                                        </td>
+                                        <td>
+                                            <strong>Total:</strong>
+                                            <span t-esc="factura.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                
                             </table>
                         </td> 
 
