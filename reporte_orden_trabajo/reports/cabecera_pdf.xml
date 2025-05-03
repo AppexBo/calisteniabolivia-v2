@@ -119,18 +119,18 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td >
+                                    <td style="text-align: end;">
                                         <strong>AÑO:</strong>
                                     </td>
-                                    <td >
+                                    <td style="text-align: start;">
                                         <span t-esc="o.tasks_ids[0].year_vehiculo"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td >
+                                    <td style="text-align: end;">
                                         <strong>COLOR:</strong>
                                     </td>
-                                    <td >
+                                    <td style="text-align: start;">
                                         <span t-esc="o.tasks_ids[0].color_vehiculo"/>
                                     </td>
                                 </tr>
