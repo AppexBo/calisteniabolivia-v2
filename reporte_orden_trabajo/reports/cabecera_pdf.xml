@@ -213,28 +213,27 @@
                 <t t-out="0"/>
             </div>
             <t t-set="current_page" t-value="context.get('page_number', 1)"/>
-                        <t t-set="total_pages" t-value="context.get('page_count', 1)"/>
-
-                        <t t-if="current_page == total_pages">
-                            <div class="footer">
-                                <div class="clearfix" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
-                                <table class="table table-bordered mt32" style="font-size: 12px; width:100%;">
-                                    <tr>
-                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                    </tr>
-                                    <tr>
-                                    <td style="font-size: 11px;">Elaborado por</td>
-                                    <td style="font-size: 11px;">Autorizado por</td>
-                                    <td style="font-size: 11px;">Aprobado por G.G.</td>
-                                    <td style="font-size: 11px;">C.I. ...................</td>
-                                    </tr>
-                                </table>
-                                </div>
-                            </div>
-                        </t>
+            <t t-set="total_pages" t-value="context.get('page_count', 1)"/>
+            
+            <t t-if="current_page == total_pages">
+                <div class="footer" style="margin: 20px 25px 0 25px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: center;">
+                        <tr>
+                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
+                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
+                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
+                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
+                        </tr>
+                        <tr>
+                            <td>Elaborado por</td>
+                            <td>Autorizado por</td>
+                            <td>Aprobado por G.G.</td>
+                            <td>C.I. ...................</td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+            
         </template>
     </data>
 </odoo>
