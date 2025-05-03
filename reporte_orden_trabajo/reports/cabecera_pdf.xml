@@ -212,47 +212,29 @@
             <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-out="0"/>
             </div>
-            <div t-attf-class="footer">
-                <div class="container">
-                    <div class="row" style="width:100%;">
-                        <div class="col-3" style="text-align: center;">
-                            <strong>
-                                -----------------------------
-                                <br/>
-                                Técnico a Cargo
-                            </strong>
-                        </div>
-                        <div class="col-3" style="text-align: center;">
-                            <strong>
-                                -----------------------------
-                                <br/>
-                                Jefe Taller
-                            </strong>
-                        </div>
-                        <div class="col-3" style="text-align: center;">
-                            <strong>
-                                -----------------------------
-                                <br/>
-                                Asesor
-                            </strong>
-                        </div>
-                        <div class="col-3" style="text-align: center;">
-                            <strong>
-                                -----------------------------
-                                <br/>
-                                VoBo Cliente
-                            </strong>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div class="text-center" style="border-top: 1px solid black;">
-                    <div t-if="report_type == 'pdf'" class="text-muted">
-                        Page: <span class="page"/> / <span class="topage"/>
-                    </div>
-                </div>
-                <br/>
-            </div>
+            <t t-set="current_page" t-value="context.get('page_number', 1)"/>
+                        <t t-set="total_pages" t-value="context.get('page_count', 1)"/>
+
+                        <t t-if="current_page == total_pages">
+                            <div class="footer">
+                                <div class="clearfix" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
+                                <table class="table table-bordered mt32" style="font-size: 12px; width:100%;">
+                                    <tr>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    </tr>
+                                    <tr>
+                                    <td style="font-size: 11px;">Elaborado por</td>
+                                    <td style="font-size: 11px;">Autorizado por</td>
+                                    <td style="font-size: 11px;">Aprobado por G.G.</td>
+                                    <td style="font-size: 11px;">C.I. ...................</td>
+                                    </tr>
+                                </table>
+                                </div>
+                            </div>
+                        </t>
         </template>
     </data>
 </odoo>
