@@ -35,6 +35,11 @@
                             <strong>ORDEN DE TRABAJO <t t-esc="o.codigo_A1_or_A2"/>-OT<t t-esc="o.mes_secuencia"/></strong>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: end; font-size:11px;">
+                            <strong>Fecha: <t t-esc="o.date_order.strftime('%d/%m/%Y')"/></strong>
+                        </td>
+                    </tr>
                 </table>
 
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
@@ -91,14 +96,8 @@
                             <table border="1" style="width: 100%;">
                                 <tr>
                                     <td style="text-align: end;"> 
-                                        <strong>PLACA:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.tasks_ids[0].placa_vehiculo"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: end;">
-                                        <strong>KILOMETRAJE:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.tasks_ids[0].kilometraje_vehiculo"/>
+                                        <strong>Email:</strong>
+                                        <span style="font-weight: normal;"  t-esc="o.partner_id.email"/>
                                     </td>
                                 </tr>
                             </table>
@@ -106,7 +105,7 @@
 
                     </tr>
                 </table>
-                
+
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px; font-family: 'Arial';">
                     <tr>
                         <td style="width: 50%; vertical-align: top;">
