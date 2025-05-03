@@ -66,7 +66,7 @@
                                     <tbody class="sale_order_tbody">
                                         <t t-set="sum_subtotal" t-value="0.0"/>
                                         <t t-foreach="o.order_line" t-as="line">
-                                            <t t-set="sum_subtotal" t-value="sum_subtotal + line.price_subtotal"/>
+                                            <t t-set="sum_subtotal" t-value="sum_subtotal + (line.product_uom_qty * line.price_unit)"/>
                                             <tr>
                                                 <td class="text-center p-8">
                                                     <span t-esc="line.product_id.default_code or ''"/>
@@ -75,7 +75,7 @@
                                                     <span t-esc="line.name"/>
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.product_uom or ''" />
+                                                    <span t-esc="line.product_uom.name or ''" />
                                                 </td>
                                                 <!--t-options='{"widget": "float", "precision": 2}'-->
                                                 <td style="text-align: end; padding: 8;">
