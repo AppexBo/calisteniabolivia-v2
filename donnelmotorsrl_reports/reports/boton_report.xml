@@ -1,0 +1,6 @@
+<odoo>
+    <!-- Asignar paperformat personalizado al reporte -->
+    <record id="report_sale_order_custom" model="ir.actions.report">
+        <field name="paperformat_id" ref="donnelmotorsrl_reports.paper_report_sale_troquel"/>
+    </record>
+</odoo>
