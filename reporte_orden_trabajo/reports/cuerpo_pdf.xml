@@ -45,50 +45,40 @@
                                     </thead>
                                     <t t-set="format_decimal" t-value="o.currency_id and o.currency_id.decimal_places or 2"/>
                                     <tbody class="account_account_tbody">
-                                        <t t-set="sum_debit_dollar" t-value="0.0"/>
-                                        <t t-set="sum_credit_dollar" t-value="0.0"/>
-                                        <t t-set="sum_debit_bob" t-value="0.0"/>
-                                        <t t-set="sum_credit_bob" t-value="0.0"/>
-                                        <t t-foreach="o.line_ids" t-as="line">
-                                            <t t-set="sum_debit_dollar" t-value="sum_debit_dollar + line.debit"/>
-                                            <t t-set="sum_credit_dollar" t-value="sum_credit_dollar + line.credit"/>
-                                            <t t-set="sum_debit_bob" t-value="sum_debit_bob + line.debit"/>
-                                            <t t-set="sum_credit_bob" t-value="sum_credit_bob + line.credit"/>
+                                        <t t-set="sum_subtotal" t-value="0.0"/>
+                                        <t t-foreach="o.order_line" t-as="line">
+                                            <t t-set="sum_subtotal" t-value="sum_subtotal + line.price_subtotal"/>
                                             <tr>
                                                 <td class="text-center p-8">
-                                                    <span t-esc="line.account_id.code"/>
+                                                    <span t-esc="line.product_id.default_code or ''"/>
                                                 </td>
                                                 <td style="text-align: start; padding:8;">
-                                                    <span t-esc="line.account_id.name"/>
-                                                    <br/>
-                                                    <!-- height: 40px !important;<span t-esc="line.name or ''"/>-->
-
+                                                    <span t-esc="line.name"/>
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.debit" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    <span t-esc="line.product_uom_qty" t-options='{"widget": "float", "precision": 2}'/>
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.credit" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/>
                                                 </td>
                                             </tr>
                                         </t>
+                                    
                                         <tr style="border: 1px solid !important;">
-                                            <td colspan="2" style="text-align: right; padding: 8;">
-                                                <strong>Totales:</strong>
-                                            </td>
-
-                                            <td style="text-align: end; padding: 8;font-size: 11px;">
-                                                <strong>
-                                                    <t t-out="sum_debit_bob" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
-                                                </strong>
+                                            <td colspan="4" style="text-align: right; padding: 8;">
+                                                <strong>Total:</strong>
                                             </td>
                                             <td style="text-align: end; padding: 8;font-size: 11px;">
                                                 <strong>
-                                                    <t t-out="sum_credit_bob" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                                    <t t-out="sum_subtotal" t-options='{"widget": "float", "precision": 2}'/>
                                                 </strong>
                                             </td>
                                         </tr>
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
