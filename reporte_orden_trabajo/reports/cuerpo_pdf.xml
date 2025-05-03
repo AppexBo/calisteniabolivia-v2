@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="cuerpo_pdf" >
+    <template id="cuerpo_pdf">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="reporte.cabecera_pdf">
-                    <div class="page" >
-                        <!--Para eiliminar bordes de la tabla-->
+                    <div class="page">
                         <style type="text/css">
                             thead, tbody, th, tr, td {
                                 border: 2px solid #dee2e6;
                             }
                         </style>
-                        <!--style="height: 40px !important;"  border-top: 0px; font-size: 11px; margin-top: 1px; -->
                         <div class="row">
                             <div class="col-12">
-                                <table class="table table-bordered " style="width:100%; font-size: 11px !important;font-family: 'Arial';">
+                                <table class="table table-bordered" style="width:100%; font-size: 11px !important; font-family: 'Arial';">
                                     <thead>
                                         <tr style="background-color: #E5E8E8">
                                             <th class="p-0 text-center" width="50">
-                                                <strong style="font-size: 11px" >
-                                                    Cuenta
+                                                <strong style="font-size: 11px">
+                                                    Producto
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="50">
                                                 <strong>
-                                                    Descripcion Cuenta / Glosa de Mayor
+                                                    Descripción
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="30">
                                                 <strong>
-                                                    
-                                                    Debe <t t-esc="o.currency_id.symbol"/>
+                                                    Cantidad
                                                 </strong>
                                             </th>
 
-                                            <th class="p-0 text-center" width="20">
+                                            <th class="p-0 text-center" width="30">
                                                 <strong>
-                                                    Haber <t t-esc="o.currency_id.symbol"/>
+                                                    Precio Unitario <t t-esc="o.currency_id.symbol"/>
+                                                </strong>
+                                            </th>
+
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    Total <t t-esc="o.currency_id.symbol"/>
                                                 </strong>
                                             </th>
                                         </tr>
                                     </thead>
+
                                     <t t-set="format_decimal" t-value="o.currency_id and o.currency_id.decimal_places or 2"/>
-                                    <tbody class="account_account_tbody">
+                                    <tbody class="sale_order_tbody">
                                         <t t-set="sum_subtotal" t-value="0.0"/>
                                         <t t-foreach="o.order_line" t-as="line">
                                             <t t-set="sum_subtotal" t-value="sum_subtotal + line.price_subtotal"/>
@@ -66,45 +70,42 @@
                                                 </td>
                                             </tr>
                                         </t>
-                                    
+
                                         <tr style="border: 1px solid !important;">
                                             <td colspan="4" style="text-align: right; padding: 8;">
                                                 <strong>Total:</strong>
                                             </td>
-                                            <td style="text-align: end; padding: 8;font-size: 11px;">
+                                            <td style="text-align: end; padding: 8; font-size: 11px;">
                                                 <strong>
                                                     <t t-out="sum_subtotal" t-options='{"widget": "float", "precision": 2}'/>
                                                 </strong>
                                             </td>
                                         </tr>
                                     </tbody>
-                                    
                                 </table>
                             </div>
                         </div>
+
                         <div class="row" style="margin-top: 20px;">
                             <div class="col-12">
-                                <t t-set="num2word_var" t-value="o.number_to_word(sum_debit_bob).upper()"/>
+                                <t t-set="num2word_var" t-value="o.amount_to_text(sum_subtotal).upper()"/>
 
-                                <t t-if="sum_debit_bob % 1 == 0">
-                                    <!-- Si la parte decimal es 0, asegúrate de mostrar 00/100 -->
+                                <t t-if="sum_subtotal % 1 == 0">
                                     <t t-set="num2word_var" t-value="num2word_var.replace('CON 0/100', 'CON 00/100')"/>
                                 </t>
 
-                                <span style="font-size: 11px;font-family: 'Roboto';">LA SUMA DE:
+                                <span style="font-size: 11px; font-family: 'Roboto';">La suma de:
                                     <t t-out="num2word_var"/>
                                 </span>
 
                             </div>
-
                         </div>
-
 
                         <t t-set="current_page" t-value="context.get('page_number', 1)"/>
                         <t t-set="total_pages" t-value="len(o)"/>
                         <div class="clearfix" t-if="current_page == total_pages" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
                             <div id="total" class="row">
-                                <table class="table table-bordered mt32" style="font-size: 12px;width:100%;">
+                                <table class="table table-bordered mt32" style="font-size: 12px; width:100%;">
                                     <tr>
                                         <td style="height: 100px; width: 25%; border-top: 0px"/>
                                         <td style="height: 100px; width: 25%; border-top: 0px"/>
@@ -120,15 +121,12 @@
                                         <td style="font-size: 11px;">C.I. ...................</td>
                                     </tr>
                                 </table>
-
                             </div>
                         </div>
-
 
                     </div>
                 </t>
             </t>
         </t>
     </template>
-
 </odoo>

@@ -79,7 +79,7 @@
                 </table>
                 <!--La parte del medio de la cabecera-->
                     <!--Empresa fiscal usara el codigo A1-->
-               
+<!--                
                     <table style="width:100%; text-align:center; margin-bottom:35px;font-family: 'Arial';">
                         <tr t-if="o.journal_id.type == 'general' or o.journal_id.type == 'purchase' or o.journal_id.type == 'sale'">
                             <td colspan="12" style="text-align: center; font-size:25px;">
@@ -96,7 +96,7 @@
                                 <strong>COMPROBANTE DE EGRESO <t t-esc="o.codigo_A1_or_A2"/>-CE<t t-esc="o.mes_secuencia"/> </strong>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
               
 
                 
