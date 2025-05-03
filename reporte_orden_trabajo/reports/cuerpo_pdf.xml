@@ -88,13 +88,13 @@
 
                         <div class="row" style="margin-top: 20px;">
                             <div class="col-12">
-                                <t t-set="num2word_var" t-value="o.amount_to_text(sum_subtotal).upper()"/>
-
+                                <t t-set="num2word_var" t-value="o.number_to_word(sum_subtotal).upper()"/>
+                                
                                 <t t-if="sum_subtotal % 1 == 0">
                                     <t t-set="num2word_var" t-value="num2word_var.replace('CON 0/100', 'CON 00/100')"/>
                                 </t>
 
-                                <span style="font-size: 11px; font-family: 'Roboto';">La suma de:
+                                <span style="font-size: 11px;font-family: 'Roboto';">LA SUMA DE:
                                     <t t-out="num2word_var"/>
                                 </span>
 
