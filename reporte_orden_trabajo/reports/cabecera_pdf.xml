@@ -214,15 +214,15 @@
             </div>
             <t t-set="current_page" t-value="context.get('page_number', 1)"/>
             <t t-set="total_pages" t-value="context.get('page_count', 1)"/>
-            
+
             <t t-if="current_page == total_pages">
                 <div class="footer" style="margin: 20px 25px 0 25px;">
-                    <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: center;">
+                    <table style="width: 100%; border-collapse: separate; border-spacing: 10px; font-size: 11px; text-align: center;">
                         <tr>
-                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
-                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
-                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
-                            <td style="height: 80px; width: 25%; vertical-align: bottom; border: 1px solid #000;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
                         </tr>
                         <tr>
                             <td>Elaborado por</td>
@@ -233,6 +233,7 @@
                     </table>
                 </div>
             </t>
+
             
         </template>
     </data>
