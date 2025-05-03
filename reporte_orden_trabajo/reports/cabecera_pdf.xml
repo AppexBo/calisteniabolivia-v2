@@ -45,7 +45,7 @@
                                         <strong>Cuenta:</strong>
                                     </td>
                                     <td >
-                                        <span t-esc="o.tasks_ids[0].partner_id"/>
+                                        <span t-esc="o.partner_id"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -53,7 +53,7 @@
                                         <strong>Direccion:</strong>
                                     </td>
                                     <td >
-                                        <span t-esc="o.tasks_ids[0].street"/>
+                                        <span t-esc="o.partner_id.street"/>
                                     </td>
                                 </tr>
                             </table>
