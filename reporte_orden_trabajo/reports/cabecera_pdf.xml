@@ -59,7 +59,7 @@
                                         <td><strong>Facturar a:</strong></td>
                                         <td>
                                             <div>
-                                                <span t-esc="factura.partner_id.name"/> <strong>NIT:</strong>
+                                                <span t-esc="factura.partner_id.name or 'No facturo aun'"/> <strong>NIT:</strong>
                                                 <span t-esc="factura.partner_id.vat"/>
                                             </div>
                                         </td>
@@ -242,10 +242,10 @@
                             <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid black; border-radius: 5px;"></td>
                         </tr>
                         <tr>
-                            <td>Elaborado por</td>
-                            <td>Autorizado por</td>
-                            <td>Aprobado por G.G.</td>
-                            <td>C.I. ...................</td>
+                            <td>ASESOR DE SERVICIO</td>
+                            <td>TECNICO ASIGNADO</td>
+                            <td>CONTROL DE CALIDAD</td>
+                            <td>Vo.Bo. CLIENTE</td>
                         </tr>
                     </table>
                 </div>
