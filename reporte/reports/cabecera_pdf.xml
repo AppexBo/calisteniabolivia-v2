@@ -23,17 +23,18 @@
                         border: 1px solid #fff;
                     }
                 </style>
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        <strong t-field="company.name"/>
+                    </td>
+                </tr>
                 <!--La parte superior de la cabecera-->
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
                     <tr>
                         <td style="width: 50%; vertical-align: top;">
                             <!-- Primera columna -->
                             <table border="1" style="width: 100%; border-collapse: collapse;">
-                                <tr>
-                                    <td colspan="4">
-                                        <strong t-field="company.name"/>
-                                    </td>
-                                </tr>
+                                
                                 <t t-if="o.codigo_A1_or_A2 == 'A1'">
                                     <tr>
                                         <td colspan="4">
