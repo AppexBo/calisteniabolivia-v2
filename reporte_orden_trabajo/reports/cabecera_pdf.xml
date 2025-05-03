@@ -106,72 +106,60 @@
 
                     </tr>
                 </table>
-                <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
+                
+                <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px; font-family: 'Arial';">
                     <tr>
-                        <td style="width: 50%; vertical-align: top; text-align: start;">
-                            <table border="1" style="width: 100%; text-align: start;">
+                        <td style="width: 50%; vertical-align: top;">
+                            <table border="1" style="width: 100%;">
                                 <tr>
-                                    <td style="text-align: end;">
-                                        <strong >TIPO DE VEHICULO:</strong>
-                                        
+                                    <td style="text-align: right; padding-right: 5px; width: 40%;">
+                                        <strong>TIPO DE VEHICULO:</strong>
                                     </td>
-                                    <td style="padding-left: 10px;">
+                                    <td style="text-align: left; padding-left: 5px;">
                                         <span t-esc="o.tasks_ids[0].tipo_vehiculo"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: end;">
+                                    <td style="text-align: right; padding-right: 5px;">
                                         <strong>AÑO:</strong>
                                     </td>
-                                    <td >
+                                    <td style="text-align: left; padding-left: 5px;">
                                         <span t-esc="o.tasks_ids[0].year_vehiculo"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: end;">
+                                    <td style="text-align: right; padding-right: 5px;">
                                         <strong>COLOR:</strong>
                                     </td>
-                                    <td >
+                                    <td style="text-align: left; padding-left: 5px;">
                                         <span t-esc="o.tasks_ids[0].color_vehiculo"/>
                                     </td>
                                 </tr>
-                                <!-- <tr>
-                                    <td style="text-align: start;">
-                                        <strong>No. DE MOTOR:</strong>
-                                    </td>
-                                    <td style="text-align: end;">
-                                        <span t-esc="o.tasks_ids[0].color_vehiculo"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: start;">
-                                        <strong>No. DE CHASIS:</strong>
-                                    </td>
-                                    <td style="text-align: end;">
-                                        <span t-esc="o.tasks_ids[0].color_vehiculo"/>
-                                    </td>
-                                </tr> -->
                             </table>
                         </td>
-                        <td style="width: 50%; vertical-align: top; text-align: end;">
-                            <table border="1" style="width: 100%; text-align: end;">
+                        <td style="width: 50%; vertical-align: top;">
+                            <table border="1" style="width: 100%;">
                                 <tr>
-                                    <td style="text-align: end;"> 
+                                    <td style="text-align: right; padding-right: 5px; width: 40%;">
                                         <strong>PLACA:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.tasks_ids[0].placa_vehiculo"/>
+                                    </td>
+                                    <td style="text-align: left; padding-left: 5px;">
+                                        <span t-esc="o.tasks_ids[0].placa_vehiculo"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: end;">
+                                    <td style="text-align: right; padding-right: 5px;">
                                         <strong>KILOMETRAJE:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.tasks_ids[0].kilometraje_vehiculo"/>
+                                    </td>
+                                    <td style="text-align: left; padding-left: 5px;">
+                                        <span t-esc="o.tasks_ids[0].kilometraje_vehiculo"/>
                                     </td>
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
+                
 
                 <!-- <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
                     
