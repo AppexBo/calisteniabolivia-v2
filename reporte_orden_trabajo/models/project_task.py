@@ -20,6 +20,9 @@ class SecuenciaMes(models.Model):
         # get actual language
         lang = self.env.context.get('lang', 'es_ES')
         return f"{num2words(integer_part, lang=lang)} con {decimal_part}/100 {self.currency_id.symbol}"
+    def amount_to_text(self, amount):
+        # Usar num2words para convertir el monto en número a texto
+        return num2words.num2words(amount, lang='es')
     @api.depends('date_order')
     def _compute_mes_secuencia(self):
         for record in self:
