@@ -105,23 +105,15 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align: end;">
+                                    <td style="text-align: end;"> 
                                         <strong>Plazo:</strong>
-                                        <span style="font-weight: normal;">
-                                            <t t-set="dias" t-value="sum([l.days for l in o.payment_term_id.line_ids])"/>
-                                            <t t-esc="dias"/> días
-                                        </span>
-                                        <br/>
+                                        <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
                                         <strong>Vence:</strong>
-                                        <span style="font-weight: normal;">
-                                            <t t-set="fecha_vence" t-value="o.date_order + relativedelta(days=dias)"/>
-                                            <t t-esc="fecha_vence.strftime('%d/%m/%Y')"/>
-                                        </span>
+                                        <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
                                     </td>
                                 </tr>
                             </table>
-                        </td>
-                        
+                        </td> 
 
                     </tr>
                 </table>
