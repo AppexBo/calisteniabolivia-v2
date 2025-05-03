@@ -3,7 +3,7 @@
     <data>
 
          <record id="formato_papel" model="report.paperformat">
-                <field name="name">Formato de asientos contables</field>
+                <field name="name">Orden de trabajo</field>
                 <field name="default" eval="False"/>
                 <field name="format">custom</field>
                 <field name="page_height">297</field>

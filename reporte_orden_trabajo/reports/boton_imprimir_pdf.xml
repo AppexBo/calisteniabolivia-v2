@@ -2,14 +2,14 @@
 <odoo>
 
     
-    <record id="action_account_account_report" model="ir.actions.report">
+    <record id="boton_sale_order" model="ir.actions.report">
         <field name="name">Orden de Trabajo</field>
         <field name="model">sale.order</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">reporte_orden_trabajo.cuerpo_pdf</field>
         <field name="report_file">reporte_orden_trabajo.cuerpo_pdf</field>
         <field name="print_report_name">'Orden de Trabajo - %s' % (object.name)</field>
-        <field name="paperformat_id" ref="reporte.formato_papel"/>
+        <field name="paperformat_id" ref="reporte_orden_trabajo.formato_papel"/>
         <field name="binding_model_id" ref="model_sale_order"/>
     </record>
 
