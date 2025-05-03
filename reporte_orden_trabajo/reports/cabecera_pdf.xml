@@ -212,6 +212,47 @@
             <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-out="0"/>
             </div>
+            <div t-attf-class="footer">
+                <div class="container">
+                    <div class="row" style="width:100%;">
+                        <div class="col-3" style="text-align: center;">
+                            <strong>
+                                -----------------------------
+                                <br/>
+                                Técnico a Cargo
+                            </strong>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <strong>
+                                -----------------------------
+                                <br/>
+                                Jefe Taller
+                            </strong>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <strong>
+                                -----------------------------
+                                <br/>
+                                Asesor
+                            </strong>
+                        </div>
+                        <div class="col-3" style="text-align: center;">
+                            <strong>
+                                -----------------------------
+                                <br/>
+                                VoBo Cliente
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="text-center" style="border-top: 1px solid black;">
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page: <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+                <br/>
+            </div>
         </template>
     </data>
 </odoo>
