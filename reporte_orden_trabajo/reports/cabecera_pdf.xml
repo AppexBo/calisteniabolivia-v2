@@ -108,13 +108,14 @@
                 </table>
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
                     <tr>
-                        <td style="width: 20%; vertical-align: top;">
+                        <td style="width: 50%; vertical-align: top;">
                             <table border="1" style="width: 100%;">
                                 <tr>
                                     <td style="text-align: end;">
                                         <strong >TIPO DE VEHICULO:</strong>
+                                        
                                     </td>
-                                    <td >
+                                    <td style="padding-left: 10px;">
                                         <span t-esc="o.tasks_ids[0].tipo_vehiculo"/>
                                     </td>
                                 </tr>
@@ -152,7 +153,7 @@
                                 </tr> -->
                             </table>
                         </td>
-                        <td style="width: 80%; vertical-align: top;">
+                        <td style="width: 50%; vertical-align: top;">
                             <table border="1" style="width: 100%;">
                                 <tr>
                                     <td style="text-align: end;"> 
