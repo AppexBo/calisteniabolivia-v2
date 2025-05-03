@@ -77,23 +77,24 @@
                                                 <td style="text-align: end; padding: 8;">
                                                     <span t-esc="line.product_uom or ''" />
                                                 </td>
+                                                <!--t-options='{"widget": "float", "precision": 2}'-->
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.product_uom_qty" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.product_uom_qty" />
                                                 </td>
                                                 <!--Monto-->
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.price_unit"/>
                                                 </td>
                                                 <!--DESCUENCTO-->
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.discount or ''" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.discount or ''"/>
                                                 </td>
 
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.price_unit" />
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.product_uom_qty * line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.product_uom_qty * line.price_unit"/>
                                                 </td>
                                             </tr>
                                         </t>
