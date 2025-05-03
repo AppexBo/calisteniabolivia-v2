@@ -10,7 +10,7 @@
         <field name="report_file">reporte_orden_trabajo.cuerpo_pdf</field>
         <field name="print_report_name">'Orden de Trabajo - %s' % (object.name)</field>
         <field name="paperformat_id" ref="reporte.formato_papel"/>
-        <field name="binding_model_id" ref="model_account_move"/>
+        <!-- <field name="binding_model_id" ref="model_account_move"/> -->
     </record>
 
 </odoo>
