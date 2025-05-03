@@ -28,6 +28,11 @@
                             <strong t-field="company.name"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: center; font-size:25px;">
+                            <strong>COMPROBANTE DE DIARIO <t t-esc="o.codigo_A1_or_A2"/>-OT<t t-esc="o.mes_secuencia"/></strong>
+                        </td>
+                    </tr>
                 </table>
 
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
