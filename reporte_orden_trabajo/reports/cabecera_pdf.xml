@@ -24,12 +24,14 @@
                 </style>
                 <table style="width:100%; text-align:center; margin-bottom:35px;font-family: 'Arial';">
                     <tr>
-                        <td colspan="4" style="text-align: center; font-size:16px;">
-                            <strong t-field="company.name"/>
+                        <td colspan="4" style="text-align: center; font-size:10px;">
+                            <strong t-field="company.name" />
+                            <strong>NIT:</strong>
+                            <span t-field="company.vat"/>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4" style="text-align: center; font-size:25px;">
+                        <td colspan="4" style="text-align: center; font-size:18px;">
                             <strong>COMPROBANTE DE DIARIO <t t-esc="o.codigo_A1_or_A2"/>-OT<t t-esc="o.mes_secuencia"/></strong>
                         </td>
                     </tr>
