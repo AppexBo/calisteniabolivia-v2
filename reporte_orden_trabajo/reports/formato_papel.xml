@@ -2,23 +2,19 @@
 <odoo>
     <data>
 
-        <record id="formato_papel_sale_order" model="report.paperformat">
-            <field name="name">Orden de trabajo</field>
-            <field name="default" eval="False"/>
-            <field name="format">custom</field>
-            <field name="page_height">297</field> <!-- A4 altura -->
-            <field name="page_width">210</field>  <!-- A4 ancho -->
-            <field name="orientation">Portrait</field>
-
-            <!-- Márgenes ajustados -->
-            <field name="margin_top">70</field>
-            <field name="margin_bottom">25</field> <!-- Aumentado para permitir el footer -->
-            <field name="margin_left">25</field>
-            <field name="margin_right">25</field>
-
-            <field name="header_spacing">10</field> <!-- Espacio entre encabezado y cuerpo -->
-            <field name="dpi">90</field>
-        </record>
-
+         <record id="formato_papel_sale_order" model="report.paperformat">
+                <field name="name">Orden de trabajo</field>
+                <field name="default" eval="False"/>
+                <field name="format">custom</field>
+                <field name="page_height">297</field>
+                <field name="page_width">210</field>
+                <field name="orientation">Portrait</field>
+                <field name="margin_top">70</field>
+                <field name="margin_bottom">5</field>
+                <field name="margin_left">25</field>
+                <field name="margin_right">25</field>
+                <field name="header_spacing">55</field>
+                <field name="dpi">90</field>
+        </record>      
     </data>
 </odoo>

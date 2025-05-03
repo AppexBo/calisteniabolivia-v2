@@ -105,24 +105,24 @@
                         <t t-set="total_pages" t-value="context.get('page_count', 1)"/>
 
                         <t t-if="current_page == total_pages">
-                        <div class="footer">
-                            <div class="clearfix" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
-                            <table class="table table-bordered mt32" style="font-size: 12px; width:100%;">
-                                <tr>
-                                <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                <td style="height: 100px; width: 25%; border-top: 0px"/>
-                                </tr>
-                                <tr>
-                                <td style="font-size: 11px;">Elaborado por</td>
-                                <td style="font-size: 11px;">Autorizado por</td>
-                                <td style="font-size: 11px;">Aprobado por G.G.</td>
-                                <td style="font-size: 11px;">C.I. ...................</td>
-                                </tr>
-                            </table>
-                            </div>
-                        </div>
+                           
+                                <div class="clearfix" style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">
+                                <table class="table table-bordered mt32" style="font-size: 12px; width:100%;">
+                                    <tr>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    <td style="height: 100px; width: 25%; border-top: 0px"/>
+                                    </tr>
+                                    <tr>
+                                    <td style="font-size: 11px;">Elaborado por</td>
+                                    <td style="font-size: 11px;">Autorizado por</td>
+                                    <td style="font-size: 11px;">Aprobado por G.G.</td>
+                                    <td style="font-size: 11px;">C.I. ...................</td>
+                                    </tr>
+                                </table>
+                                </div>
+                            
                         </t>
 
 
