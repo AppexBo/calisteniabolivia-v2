@@ -1,6 +1,10 @@
 <odoo>
-    <!-- Asignar paperformat personalizado al reporte -->
     <record id="report_sale_order_custom" model="ir.actions.report">
+        <field name="name">Orden de Venta Personalizada</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">donnelmotorsrl_reports.report_sale_order_custom</field>
         <field name="paperformat_id" ref="donnelmotorsrl_reports.paper_report_sale_troquel"/>
     </record>
+    
 </odoo>
