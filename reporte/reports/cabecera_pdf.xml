@@ -34,17 +34,21 @@
                                         <strong t-field="company.name"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <strong>NIT:</strong>
-                                        <span t-field="company.vat"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <span t-field="company.state_id.name"/> - <span t-field="company.country_id"/>
-                                    </td>
-                                </tr>
+                                <t t-if="o.codigo_A1_or_A2 == 'A1'">
+                                    <tr>
+                                        <td colspan="4">
+                                            <strong>NIT:</strong>
+                                            <span t-field="company.vat"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <t t-if="o.codigo_A1_or_A2 == 'A1'">
+                                    <tr>
+                                        <td colspan="4">
+                                            <span t-field="company.state_id.name"/> - <span t-field="company.country_id"/>
+                                        </td>
+                                    </tr>
+                                </t>
                                 
                             </table>
                         </td>
