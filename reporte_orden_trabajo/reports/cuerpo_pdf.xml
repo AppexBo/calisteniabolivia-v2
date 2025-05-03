@@ -17,31 +17,46 @@
                                         <tr style="background-color: #E5E8E8">
                                             <th class="p-0 text-center" width="50">
                                                 <strong style="font-size: 11px">
-                                                    Producto
+                                                    ITEM
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="50">
                                                 <strong>
-                                                    Descripción
+                                                    DESCRIPCION ITEM
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="30">
                                                 <strong>
-                                                    Cantidad
+                                                    UNI
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="30">
                                                 <strong>
-                                                    Precio Unitario <t t-esc="o.currency_id.symbol"/>
+                                                    CANTIDAD
                                                 </strong>
                                             </th>
 
                                             <th class="p-0 text-center" width="30">
                                                 <strong>
-                                                    Total <t t-esc="o.currency_id.symbol"/>
+                                                    MONTO 
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    DSCTO <t t-esc="o.currency_id.symbol"/>
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    P. UNIT 
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    NETO <t t-esc="o.currency_id.symbol"/>
                                                 </strong>
                                             </th>
                                         </tr>
@@ -60,13 +75,25 @@
                                                     <span t-esc="line.name"/>
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.product_uom or ''" />
+                                                </td>
+                                                <td style="text-align: end; padding: 8;">
                                                     <span t-esc="line.product_uom_qty" t-options='{"widget": "float", "precision": 2}'/>
                                                 </td>
+                                                <!--Monto-->
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                                <!--DESCUENCTO-->
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.discount or ''" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+
                                                 <td style="text-align: end; padding: 8;">
                                                     <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
                                                 </td>
                                                 <td style="text-align: end; padding: 8;">
-                                                    <span t-esc="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-esc="line.product_uom_qty * line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
                                                 </td>
                                             </tr>
                                         </t>
