@@ -20,7 +20,7 @@
 		#editar el reportes de orden Cotizacion en PDF
 		'reports/new_sale_report_saleorder.xml',
 		'reports/layout_standart_reportes_saleorder.xml',
-		'reports/boton_report.xml',
+		
 		
 		
 		#reportes de compra
@@ -29,5 +29,6 @@
 		
 		##formato de papel estandar
 		'reports/paper_format.xml',
+        'reports/boton_report.xml',
 	],
 }
