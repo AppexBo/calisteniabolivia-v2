@@ -219,10 +219,10 @@
                 <div class="footer" style="margin: 20px 25px 0 25px;">
                     <table style="width: 100%; border-collapse: separate; border-spacing: 10px; font-size: 11px; text-align: center;">
                         <tr>
-                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
-                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
-                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
-                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 1px solid #ccc; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 0.5px solid black; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 0.5px solid black; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 0.5px solid black; border-radius: 5px;"></td>
+                            <td style="height: 70px; width: 25%; vertical-align: bottom; border: 0.5px solid black; border-radius: 5px;"></td>
                         </tr>
                         <tr>
                             <td>Elaborado por</td>
@@ -233,6 +233,7 @@
                     </table>
                 </div>
             </t>
+
 
             
         </template>
