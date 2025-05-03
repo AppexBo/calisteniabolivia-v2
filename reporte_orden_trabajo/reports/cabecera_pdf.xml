@@ -68,6 +68,32 @@
                 </table>
 
                 <table border="1" style="width:100%; border-collapse: collapse; font-size: 11px;font-family: 'Arial';">
+                    <t t-if="o.tasks_ids and len(o.tasks_ids) > 0">
+                        <tr style="font-size: 13px;">
+                            <td><strong>TIPO VEHICULO: </strong><span t-esc="o.tasks_ids[0].tipo_vehiculo"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>AÑO: </strong><span t-esc="o.tasks_ids[0].year_vehiculo"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>COLOR: </strong><span t-esc="o.tasks_ids[0].color_vehiculo"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>VIN: </strong><span t-esc="o.tasks_ids[0].vin_vehiculo"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>PLACA: </strong><span t-esc="o.tasks_ids[0].placa_vehiculo"/></td>
+                            <td><strong>NIT: </strong><span t-esc="o.partner_id.vat"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>KILOMETRAJE: </strong><span t-esc="o.tasks_ids[0].kilometraje_vehiculo"/></td>
+                            <td><strong>CORREO: </strong><span t-esc="o.partner_id.email"/></td>
+                        </tr>
+                        <tr style="font-size: 13px;">
+                            <td><strong>Fecha de la orden: </strong><span t-esc="o.date_order"/></td>
+                            <td><strong>Vendedor: </strong><span t-esc="o.user_id.name"/></td>
+                        </tr>
+                    </t>
                     <tr>
                         <td style="width: 80%; vertical-align: top;">
                             <table border="1" style="width: 100%;">
@@ -115,35 +141,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div>
-                <t t-if="o.tasks_ids and len(o.tasks_ids) > 0">
-                    <tr style="font-size: 13px;">
-                        <td><strong>TIPO VEHICULO: </strong><span t-esc="o.tasks_ids[0].tipo_vehiculo"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>AÑO: </strong><span t-esc="o.tasks_ids[0].year_vehiculo"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>COLOR: </strong><span t-esc="o.tasks_ids[0].color_vehiculo"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>VIN: </strong><span t-esc="o.tasks_ids[0].vin_vehiculo"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>PLACA: </strong><span t-esc="o.tasks_ids[0].placa_vehiculo"/></td>
-                        <td><strong>NIT: </strong><span t-esc="o.partner_id.vat"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>KILOMETRAJE: </strong><span t-esc="o.tasks_ids[0].kilometraje_vehiculo"/></td>
-                        <td><strong>CORREO: </strong><span t-esc="o.partner_id.email"/></td>
-                    </tr>
-                    <tr style="font-size: 13px;">
-                        <td><strong>Fecha de la orden: </strong><span t-esc="o.date_order"/></td>
-                        <td><strong>Vendedor: </strong><span t-esc="o.user_id.name"/></td>
-                    </tr>
-                </t>
-
             </div>
             <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                 <t t-out="0"/>
