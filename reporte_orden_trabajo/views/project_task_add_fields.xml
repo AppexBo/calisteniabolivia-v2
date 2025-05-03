@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_task_form_newfields" model="ir.ui.view">
+            <field name="name">project.task.form.newfields</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="tipo_vehiculo"/>
+                    <field name="year_vehiculo"/>
+                    <field name="color_vehiculo"/>
+                    <field name="nro_motor"/>
+                    <field name="nro_chasis"/>
+                    
+                    <!-- <field name="vin_vehiculo"/> -->
+                    <field name="placa_vehiculo"/>
+                    <field name="kilometraje_vehiculo"/>
+                    
+				</xpath>
+			</field>
+		</record>
+    </data>
+</odoo>

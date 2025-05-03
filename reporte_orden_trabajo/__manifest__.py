@@ -7,7 +7,6 @@
         'sale',
         'account',
         'purchase',
-       
     ],
     'author': 'APPEX BOLIVIA SRL.',
     'summary': 'Reporte Orden Trabajo v18',
@@ -16,7 +15,7 @@
       'reports/boton_imprimir_pdf.xml',
       'reports/cabecera_pdf.xml',
       'reports/cuerpo_pdf.xml',
-      #'views/campo_adicional_razon_social_micelaneo.xml',
+      'views/project_task_add_fields.xml',
     ],
     'installable': True,
 }
