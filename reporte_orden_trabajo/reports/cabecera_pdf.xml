@@ -59,7 +59,7 @@
                                         <td><strong>Facturar a:</strong></td>
                                         <td>
                                             <div>
-                                                <span t-esc="factura.partner_id.name"/> - 
+                                                <span t-esc="factura.partner_id.name"/> <strong>NIT:</strong>
                                                 <span t-esc="factura.partner_id.vat"/>
                                             </div>
                                         </td>
