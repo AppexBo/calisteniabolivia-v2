@@ -110,16 +110,13 @@
                                     <tr>
                                         <td style="text-align: end;"> 
                                             <strong>Plazo:</strong>
-                                            <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
-    
+                                            <span style="font-weight: normal;" t-esc="o.payment_term_id.name"/>
+                                
                                             <strong>Vence:</strong>
-                                            <span style="font-weight: normal;"  t-esc="o.factura.invoice_date_due.strftime('%d/%m/%Y')"/>
+                                            <span style="font-weight: normal;" t-esc="factura.invoice_date_due.strftime('%d/%m/%Y')"/>
                                         </td>
                                     </tr>
                                 </t>
-                                
-                                
-                                
                             </table>
                         </td> 
 
