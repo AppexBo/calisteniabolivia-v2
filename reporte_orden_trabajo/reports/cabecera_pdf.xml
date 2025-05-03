@@ -106,15 +106,18 @@
                                         </td>
                                     </tr>
                                 </t>
+                                <t t-foreach="o.invoice_ids" t-as="factura">
+                                    <tr>
+                                        <td style="text-align: end;"> 
+                                            <strong>Plazo:</strong>
+                                            <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
+    
+                                            <strong>Vence:</strong>
+                                            <span style="font-weight: normal;"  t-esc="o.factura.invoice_date_due.strftime('%d/%m/%Y')"/>
+                                        </td>
+                                    </tr>
+                                </t>
                                 
-                                <tr>
-                                    <td style="text-align: end;"> 
-                                        <strong>Plazo:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
-                                        <strong>Vence:</strong>
-                                        <span style="font-weight: normal;"  t-esc="o.payment_term_id.name"/>
-                                    </td>
-                                </tr>
                                 
                                 
                             </table>
