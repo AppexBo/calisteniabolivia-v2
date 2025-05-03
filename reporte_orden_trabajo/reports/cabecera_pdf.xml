@@ -112,9 +112,9 @@
                             <table border="1" style="width: 100%;">
                                 <tr>
                                     <td style="text-align: end;">
-                                        <strong >TIPO VEHICULO:</strong>
+                                        <strong >TIPO DE VEHICULO:</strong>
                                     </td>
-                                    <td style="text-align: start;">
+                                    <td >
                                         <span t-esc="o.tasks_ids[0].tipo_vehiculo"/>
                                     </td>
                                 </tr>
@@ -122,7 +122,7 @@
                                     <td style="text-align: end;">
                                         <strong>AÑO:</strong>
                                     </td>
-                                    <td style="text-align: start;">
+                                    <td >
                                         <span t-esc="o.tasks_ids[0].year_vehiculo"/>
                                     </td>
                                 </tr>
@@ -130,7 +130,7 @@
                                     <td style="text-align: end;">
                                         <strong>COLOR:</strong>
                                     </td>
-                                    <td style="text-align: start;">
+                                    <td >
                                         <span t-esc="o.tasks_ids[0].color_vehiculo"/>
                                     </td>
                                 </tr>
