@@ -3,7 +3,6 @@ from odoo.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
 from num2words import num2words
 from datetime import datetime
-
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -32,9 +31,7 @@ class ProjectTask(models.Model):
                     raise ValidationError("El año debe ser un número de exactamente 4 dígitos (ej: 2023)")
                 
 
-
-
-class SaleOrder(models.Model):
+class SecuenciaMes(models.Model):
     _inherit = 'sale.order'
 
     mes_secuencia = fields.Char(
@@ -47,40 +44,30 @@ class SaleOrder(models.Model):
     def _compute_mes_secuencia(self):
         for record in self:
             if record.date_order:
-                # Convertir a solo fecha
+                # Convertir a fecha para evitar errores por hora
                 fecha = record.date_order.date()
                 mes = fecha.strftime('%m')
-                anio = fecha.strftime('%Y')
-
-                # Primer día del mes
                 start_of_month = fecha.replace(day=1)
-                # Primer día del siguiente mes
-                end_of_month = start_of_month + relativedelta(months=1)
+                end_of_month = (start_of_month + relativedelta(months=1))
 
-                # Convertir fechas a datetime para la comparación
-                start_datetime = datetime.combine(start_of_month, datetime.min.time())
-                end_datetime = datetime.combine(end_of_month, datetime.min.time())
-
-                # Dominio de búsqueda de pedidos del mismo mes
                 domain = [
-                    ('date_order', '>=', start_datetime),
-                    ('date_order', '<', end_datetime),
+                    ('date_order', '>=', datetime.combine(start_of_month, datetime.min.time())),
+                    ('date_order', '<', datetime.combine(end_of_month, datetime.min.time())),
                 ]
                 if record.id:
                     domain.append(('id', '!=', record.id))
 
                 count = self.env['sale.order'].search_count(domain) + 1
-                secuencia = f"{count:05d}"  # formato 00001, 00002, etc.
-                record.mes_secuencia = f"{anio}-{mes}-{secuencia}"
+                secuencia = f"{count:05d}"
+                record.mes_secuencia = f"-{mes}-{secuencia}"
             else:
-                record.mes_secuencia = 'HOLA MUNDO'
+                record.mes_secuencia = ''
 
     @api.model
     def create(self, vals):
-        record = super(SaleOrder, self).create(vals)
-        record._compute_mes_secuencia()  # Calcular al crear
+        record = super(SecuenciaMes, self).create(vals)
+        record._compute_mes_secuencia()  # Asegurar que se calcule al crear
         return record
-
     
     codigo_A1_or_A2 = fields.Char(
         string='Código A1 o A2',
