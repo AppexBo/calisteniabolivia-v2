@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cuerpo_pdf">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="factura.cabecera_pdf">
+                    <div class="page">
+                        <style type="text/css">
+                            thead, tbody, th, tr, td {
+                                border: 2px solid #dee2e6;
+                            }
+                        </style>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-bordered" style="width:100%; font-size: 11px !important; font-family: 'Arial';">
+                                    <thead>
+                                        <tr style="background-color: #E5E8E8">
+                                            <th class="p-0 text-center" width="50">
+                                                <strong style="font-size: 11px">
+                                                    ITEM
+                                                </strong>
+                                            </th>
+
+                                            <th class="p-0 text-center" width="50">
+                                                <strong>
+                                                    DESCRIPCION ITEM
+                                                </strong>
+                                            </th>
+
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    UNI
+                                                </strong>
+                                            </th>
+
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    CANTIDAD
+                                                </strong>
+                                            </th>
+
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    MONTO 
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    DSCTO <t t-esc="o.currency_id.symbol"/>
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    P. UNIT 
+                                                </strong>
+                                            </th>
+                                            <th class="p-0 text-center" width="30">
+                                                <strong>
+                                                    NETO <t t-esc="o.currency_id.symbol"/>
+                                                </strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <t t-set="format_decimal" t-value="o.currency_id and o.currency_id.decimal_places or 2"/>
+                                    <tbody class="sale_order_tbody">
+                                        <t t-set="sum_subtotal" t-value="0.0"/>
+                                        <t t-foreach="o.order_line" t-as="line">
+                                            <t t-set="sum_subtotal" t-value="sum_subtotal + (line.product_uom_qty * line.price_unit)"/>
+                                            <tr>
+                                                <td class="text-center p-8">
+                                                    <span t-esc="line.product_id.default_code or ''"/>
+                                                </td>
+                                                <td style="text-align: start; padding:8;">
+                                                    <span t-esc="line.name"/>
+                                                </td>
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.product_uom.name or ''" />
+                                                </td>
+                                                <!--t-options='{"widget": "float", "precision": 2}'-->
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.product_uom_qty" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                                <!--Monto-->
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                                <!--DESCUENCTO-->
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.discount or ''"/>
+                                                </td>
+
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                                <td style="text-align: end; padding: 8;">
+                                                    <span t-esc="line.product_uom_qty * line.price_unit" t-options='{"widget": "float", "precision": 2}'/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                        <tr style="border: 1px solid !important;">
+                                            <td colspan="7" style="text-align: right; padding: 8;">
+                                                <strong>Total:</strong>
+                                            </td>
+                                            <td style="text-align: end; padding: 8; font-size: 11px;">
+                                                <strong>
+                                                    <t t-out="sum_subtotal" t-options='{"widget": "float", "precision": 2}'/>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-12">
+                                <t t-set="num2word_var" t-value="o.number_to_word(sum_subtotal).upper()"/>
+                                
+                                <t t-if="sum_subtotal % 1 == 0">
+                                    <t t-set="num2word_var" t-value="num2word_var.replace('CON 0/100', 'CON 00/100')"/>
+                                </t>
+
+                                <span style="font-size: 11px;font-family: 'Roboto';">LA SUMA DE:
+                                    <t t-out="num2word_var"/>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
