@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <record id="paperformat_letter_size" model="report.paperformat">
+        <record id="formato_papel_factura" model="report.paperformat">
             <field name="name">Media Carta (Half Letter)</field>
             <field name="default" eval="False"/>
             <field name="format">custom</field>
