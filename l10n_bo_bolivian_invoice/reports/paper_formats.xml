@@ -15,7 +15,7 @@
             <field name="header_spacing">20</field>
             <field name="code">2</field>
         </record> -->
-        <record id="paperformat_half_letter" model="report.paperformat">
+        <record id="paperformat_letter_size" model="report.paperformat">
             <field name="name">Media Carta (Half Letter)</field>
             <field name="default" eval="False"/>
             <field name="format">custom</field>
