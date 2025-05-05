@@ -2,13 +2,11 @@
 <odoo>
     <data noupdate="0">
         
-        <record id="paperformat_letter_size" model="report.paperformat" >
+        <!-- <record id="paperformat_letter_size" model="report.paperformat" >
             <field name="name">Tamaño carta A4 (BO)</field>
             <field name="default" eval="False" />
-            <field name="format">custom</field>
+            <field name="format">A4</field>
             <field name="orientation">Portrait</field>
-            <field name="page_height">218</field>
-            <field name="page_width">85</field>
             <field name="margin_top">15</field>
             <field name="margin_bottom">25</field>
             <field name="margin_left">5.00</field>
@@ -16,11 +14,11 @@
             <field name="header_line" eval="False" />
             <field name="header_spacing">20</field>
             <field name="code">2</field>
-        </record>
-        <!-- <record id="paperformat_half_letter" model="report.paperformat">
+        </record> -->
+        <record id="paperformat_half_letter" model="report.paperformat">
             <field name="name">Media Carta (Half Letter)</field>
             <field name="default" eval="False"/>
-            <field name="format"/>
+            <field name="format">custom</field>
             <field name="page_height" eval="215.9"/> 
             <field name="page_width" eval="139.7"/> 
             <field name="orientation">Portrait</field>
@@ -31,7 +29,7 @@
             <field name="header_line" eval="False"/>
             <field name="header_spacing" eval="10"/>
             <field name="code">half_letter</field>
-        </record> -->
+        </record>
         
         
         
