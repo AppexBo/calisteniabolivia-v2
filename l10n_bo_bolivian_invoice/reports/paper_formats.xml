@@ -15,9 +15,7 @@
             <field name="header_spacing">20</field>
             <field name="code">2</field>
         </record>
-        
-        
-        
+
         
         <record id="paperformat_roll" model="report.paperformat" >
             <field name="name">Tamaño rollo (BO)</field>
