@@ -3,13 +3,13 @@
 
     
     <record id="boton_sale_order" model="ir.actions.report">
-        <field name="name">Orden de Trabajo</field>
-        <field name="model">sale.order</field>
+        <field name="name">Factura</field>
+        <field name="model">account.move</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">factura.cuerpo_pdf</field>
-        <field name="report_file">factura.cuerpo_pdf</field>
+        <field name="report_name">factura.reporte_factura_personalizado</field>
+        <field name="report_file">factura.reporte_factura_personalizado</field>
         <field name="print_report_name">'Orden de Trabajo - %s' % (object.name)</field>
-        <field name="paperformat_id" ref="factura.formato_papel_sale_order"/>
+        <field name="paperformat_id" ref="factura.paperformat_letter_size"/>
         <field name="binding_model_id" ref="model_sale_order"/>
     </record>
 
