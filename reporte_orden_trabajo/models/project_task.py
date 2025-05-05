@@ -85,7 +85,7 @@ class ProjectTask(models.Model):
         required=True
     )
     
-    nro_motor = fields.Integer(
+    nro_motor = fields.Char(
         string='numero del motor',
         store=True,
         required=True,
