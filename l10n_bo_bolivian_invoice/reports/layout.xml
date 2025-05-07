@@ -31,7 +31,7 @@
                         <li>
                             <span class="page" />/
                             <span class="topage" />
-                            <span >A1</span>
+                            <span t-esc="o.get_siat_service">A1</span>
                         </li>
                     </ul>
                   
