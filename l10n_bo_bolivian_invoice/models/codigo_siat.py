@@ -1,10 +1,11 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    def get_siat_service(self, move):
-        if move.invoice_line_ids:
-            first_product = move.invoice_line_ids[0].product_id
+    def get_siat_service(self):
+        self.ensure_one()  # Para evitar procesar múltiples movimientos a la vez
+        if self.invoice_line_ids:
+            first_product = self.invoice_line_ids[0].product_id
             return first_product.siat_service_id.name if first_product.siat_service_id else ''
-        return ''
+        return 'No funciona'
