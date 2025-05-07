@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <table style="width:100%; border: 1px solid black; font-size: 10x !important;">
+                <!-- <table style="width:100%; border: 1px solid black; font-size: 10x !important;">
                         <tr style="border: 1px solid black; height: 60px;" >
                             <th style="width:130px; text-align:center ">CÓDIGO</th>
                             <th style="width:110px; text-align:center">CANTIDAD</th>
@@ -76,6 +76,7 @@
                     <tbody>
                         <t t-foreach="o.invoice_line_ids" t-as="line">
                             <t t-set="numeric_amount">
+                                
                                 <t t-esc="line.getSubTotal()" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             </t>
                             <tr t-if="line.display_type == 'product' and line.product_id.gif_product == False" > 
@@ -89,8 +90,49 @@
                             </tr>
                         </t>
                     </tbody>
+                </table> -->
+                <table style="width:100%; font-size: 9px; border-collapse: collapse; border: 1px solid black;">
+                    <tr style="height: 40px; border: 1px solid black;">
+                        <th style="width:10%; text-align:center; border: 1px solid black;">CÓDIGO</th>
+                        <th style="width:10%; text-align:center; border: 1px solid black;">CANTIDAD</th>
+                        <th style="width:12%; text-align:center; border: 1px solid black;">UNIDAD DE MEDIDA</th>
+                        <th style="width:34%; text-align:center; border: 1px solid black;">CONCEPTO</th>
+                        <th style="width:11%; text-align:center; border: 1px solid black;">PRECIO U.</th>
+                        <th style="width:11%; text-align:center; border: 1px solid black;">DESCUENTO</th>
+                        <th style="width:12%; text-align:center; border: 1px solid black;">SUBTOTAL</th>
+                    </tr>
+                    <tbody>
+                        <t t-foreach="o.invoice_line_ids" t-as="line">
+                            <t t-set="numeric_amount">
+                                <t t-esc="line.getSubTotal()" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                            </t>
+                            <tr t-if="line.display_type == 'product' and line.product_id.gif_product == False" style="border: 1px solid black;"> 
+                                <td style="text-align:center; padding: 2px; border: 1px solid black;">
+                                    <span t-field="line.product_id.default_code"/>
+                                </td> 
+                                <td style="text-align:center; padding: 2px; border: 1px solid black;">
+                                    <span t-field="line.quantity"/>
+                                </td> 
+                                <td style="text-align:left; padding: 2px; border: 1px solid black;">
+                                    <span t-field="line.product_uom_id.siat_udm_id.descripcion"/>
+                                </td> 
+                                <td style="text-align:left; padding: 2px; border: 1px solid black;">
+                                    <span t-esc="line.getDescription()"/>
+                                </td> 
+                                <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                                    <span t-esc="line.getPriceUnit()" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}" />
+                                </td> 
+                                <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                                    <span t-esc="line.getAmountDiscount()" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
+                                </td> 
+                                <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                                    <span t-esc="numeric_amount"/>
+                                </td> 
+                            </tr>
+                        </t>
+                    </tbody>
                 </table>
-
+                
                 <div class="clearfix">
                     <div id="total">
                         <table class="table table-sm" style="width:100%; border: 1px solid white; font-size: 10px !important;">
