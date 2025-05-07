@@ -133,7 +133,7 @@
                             <b>ANULADO</b>
                         </span>
                         <span t-if="o.code_environment == '2'" style="color: rgba(128, 128, 128, 0.5);font-size:35px;top:70px;position:absolute;text-align:center;width:335px;">
-                            <b>SIN VALOR LEGAL</b>
+                            <b>ssSSSSSSS</b>
                         </span>
 
                         
