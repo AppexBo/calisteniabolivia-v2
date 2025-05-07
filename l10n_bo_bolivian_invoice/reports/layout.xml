@@ -31,7 +31,6 @@
                         <li>
                             <span class="page" />/
                             <span class="topage" />
-                            <span t-esc="line_with_siat"></span>
                         </li>
                     </ul>
                   

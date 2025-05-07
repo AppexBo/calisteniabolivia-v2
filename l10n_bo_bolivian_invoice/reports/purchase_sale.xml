@@ -93,7 +93,7 @@
                 </table> -->
                 <table style="width:100%; font-size: 9px !important; border-collapse: collapse; border: 1px solid black;">
                     <tr style="height: 40px; border: 1px solid black;">
-                        <th style="width:10%; text-align:center; border: 1px solid black;">CÓDIGO</th>
+                        <th style="width:10%; text-align:center; border: 1px solid black;">PRUEVA</th>
                         <th style="width:10%; text-align:center; border: 1px solid black;">CANTIDAD</th>
                         <th style="width:12%; text-align:center; border: 1px solid black;">UNIDAD DE MEDIDA</th>
                         <th style="width:34%; text-align:center; border: 1px solid black;">CONCEPTO</th>
@@ -104,13 +104,6 @@
 
                     </tr>
                     <tbody>
-                        <!-- Buscar la primera línea que tenga siat_service_id -->
-                        <t t-set="line_with_siat" t-value="next((l for l in o.invoice_line_ids if l.siat_service_id), None)"/>
-                        <tr t-if="line_with_siat">
-                            <td colspan="7" style="text-align:left; font-weight: bold; padding: 4px;">
-                                Código Actividad SIAT: <span t-esc="line_with_siat.siat_service_id.codigoActividad"/>
-                            </td>
-                        </tr>
                         <t t-foreach="o.invoice_line_ids" t-as="line">
                            
                             <t t-set="numeric_amount">
