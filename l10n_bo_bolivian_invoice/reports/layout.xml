@@ -31,7 +31,7 @@
                         <li>
                             <span class="page" />/
                             <span class="topage" />
-                            <span>PROBANDO</span>
+                            <span t-esc="o.codigo_actividad_siat"></span>
                         </li>
                     </ul>
                   
