@@ -62,7 +62,7 @@
                         </span>
                     </div>
                 </div>
-
+<!-- invoice_line_ids[0].siat_service_id.codigoActividad -->
                 <!-- <table style="width:100%; border: 1px solid black; font-size: 10x !important;">
                         <tr style="border: 1px solid black; height: 60px;" >
                             <th style="width:130px; text-align:center ">CÓDIGO</th>
@@ -91,7 +91,7 @@
                         </t>
                     </tbody>
                 </table> -->
-                <table style="width:100%; font-size: 9px; border-collapse: collapse; border: 1px solid black;">
+                <table style="width:100%; font-size: 9px !important; border-collapse: collapse; border: 1px solid black;">
                     <tr style="height: 40px; border: 1px solid black;">
                         <th style="width:10%; text-align:center; border: 1px solid black;">CÓDIGO</th>
                         <th style="width:10%; text-align:center; border: 1px solid black;">CANTIDAD</th>
@@ -100,6 +100,8 @@
                         <th style="width:11%; text-align:center; border: 1px solid black;">PRECIO U.</th>
                         <th style="width:11%; text-align:center; border: 1px solid black;">DESCUENTO</th>
                         <th style="width:12%; text-align:center; border: 1px solid black;">SUBTOTAL</th>
+                        <th style="width:12%; text-align:center; border: 1px solid black;">Prueba</th>
+
                     </tr>
                     <tbody>
                         <t t-foreach="o.invoice_line_ids" t-as="line">
@@ -127,6 +129,9 @@
                                 </td> 
                                 <td style="text-align:right; padding: 2px; border: 1px solid black;">
                                     <span t-esc="numeric_amount"/>
+                                </td> 
+                                <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                                    <span t-esc="o.invoice_line_ids[0].siat_service_id.codigoActividad"/>
                                 </td> 
                             </tr>
                         </t>
