@@ -31,7 +31,19 @@
                         <li>
                             <span class="page" />/
                             <span class="topage" />
-                            <t t-esc="o.get_siat_service()"/>
+                            <t t-if="o.get_siat_service()='452010'">
+                                <!-- <t t-esc="o.get_siat_service()"/> -->
+                                <t>A2</t>
+                            </t>
+                            <t t-if="o.get_siat_service()='461091'">
+                                <!-- <t t-esc="o.get_siat_service()"/> -->
+                                <t>A1</t>
+                            </t>
+                            <t t-if="o.get_siat_service()='453000'">
+                                <!-- <t t-esc="o.get_siat_service()"/> -->
+                                <t>A3</t>
+                            </t>
+                           
 
                         </li>
                     </ul>
