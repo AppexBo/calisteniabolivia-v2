@@ -33,15 +33,16 @@
                             <span class="topage" />
                             <t t-if="o.get_siat_service()=='452010'">
                                 <!-- <t t-esc="o.get_siat_service()"/> -->
-                                <t>A2</t>
+                                <span><strong>A2</strong></span>
                             </t>
                             <t t-if="o.get_siat_service()=='461091'">
                                 <!-- <t t-esc="o.get_siat_service()"/> -->
-                                <t>A1</t>
+                               
+                                <span><strong>A1</strong></span>
                             </t>
                             <t t-if="o.get_siat_service()=='453000'">
                                 <!-- <t t-esc="o.get_siat_service()"/> -->
-                                <t>A3</t>
+                                <span><strong>A3</strong></span>
                             </t>
                            
 
