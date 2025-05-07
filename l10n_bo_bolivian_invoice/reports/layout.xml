@@ -70,8 +70,9 @@
                             </i>
                         </span>
                     </div>
+                    <t t-call="l10n_bo_bolivian_invoice.l10n_bo_invoice_purchase_sale_template" t-lang="o.partner_id.lang"/>
                     <t t-if="o.document_type_id.getCode() == 1">
-                        <t t-call="l10n_bo_bolivian_invoice.l10n_bo_invoice_purchase_sale_template" t-lang="o.partner_id.lang"/>
+                       
                     </t>
                     <t t-if="o.document_type_id.getCode() == 3">
                         <t t-call="l10n_bo_bolivian_invoice.l10n_bo_comercial_export_template" t-lang="o.partner_id.lang"/>
