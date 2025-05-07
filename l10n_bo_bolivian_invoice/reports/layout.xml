@@ -33,9 +33,9 @@
                             <span class="topage" />
                         </li>
                     </ul>
-                    <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                    <t t-if="o.invoice_line_ids and hasattr(o.invoice_line_ids[0], 'siat_service_id') and o.invoice_line_ids[0].siat_service_id">
                         <span t-esc="o.invoice_line_ids[0].siat_service_id.codigoActividad"/>
-                    </td> 
+                    </t>
                 </div>
             </div>
         </template>
