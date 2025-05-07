@@ -66,7 +66,7 @@
                         </span>
                         <span t-if="o.code_environment == '2'" style="color: rgba(128, 128, 128, 0.5);font-size:80px;top:80px;position:absolute;text-align:center;width:100%;">
                             <i>
-                                <b>SIN VALOR LEGAL</b>
+                                <b>PRUEBA</b>
                             </i>
                         </span>
                     </div>
@@ -133,7 +133,7 @@
                             <b>ANULADO</b>
                         </span>
                         <span t-if="o.code_environment == '2'" style="color: rgba(128, 128, 128, 0.5);font-size:35px;top:70px;position:absolute;text-align:center;width:335px;">
-                            <b>ssSSSSSSS</b>
+                            <b>SIN VALOR LEGAL</b>
                         </span>
 
                         
