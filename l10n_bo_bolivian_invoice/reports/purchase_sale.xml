@@ -104,7 +104,15 @@
 
                     </tr>
                     <tbody>
+                        <!-- Buscar la primera línea que tenga siat_service_id -->
+                        <t t-set="line_with_siat" t-value="next((l for l in o.invoice_line_ids if l.siat_service_id), None)"/>
+                        <tr t-if="line_with_siat">
+                            <td colspan="7" style="text-align:left; font-weight: bold; padding: 4px;">
+                                Código Actividad SIAT: <span t-esc="line_with_siat.siat_service_id.codigoActividad"/>
+                            </td>
+                        </tr>
                         <t t-foreach="o.invoice_line_ids" t-as="line">
+                           
                             <t t-set="numeric_amount">
                                 <t t-esc="line.getSubTotal()" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2}"/>
                             </t>
