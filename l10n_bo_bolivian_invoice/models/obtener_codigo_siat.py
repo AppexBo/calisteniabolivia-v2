@@ -9,7 +9,7 @@ class AccountMove(models.Model):
         store=True
     )
 
-    @api.depends('invoice_line_ids.siat_service_id')
+    #@api.depends('invoice_line_ids.siat_service_id')
     def _compute_codigo_actividad_siat(self):
         for move in self:
             line = next((l for l in move.invoice_line_ids if l.siat_service_id), None)
