@@ -17,7 +17,7 @@
       'reports/cabecera_pdf.xml',
       'reports/cuerpo_pdf.xml',
       'views/campo_adicional_razon_social_micelaneo.xml',
-      'views/prueba_cuenta_analitica.xml',
+     
     ],
     'installable': True,
 }

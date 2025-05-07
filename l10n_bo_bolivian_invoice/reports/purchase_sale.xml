@@ -100,7 +100,7 @@
                         <th style="width:11%; text-align:center; border: 1px solid black;">PRECIO U.</th>
                         <th style="width:11%; text-align:center; border: 1px solid black;">DESCUENTO</th>
                         <th style="width:12%; text-align:center; border: 1px solid black;">SUBTOTAL</th>
-                        <th style="width:12%; text-align:center; border: 1px solid black;">Prueba</th>
+                        
 
                     </tr>
                     <tbody>
@@ -130,9 +130,7 @@
                                 <td style="text-align:right; padding: 2px; border: 1px solid black;">
                                     <span t-esc="numeric_amount"/>
                                 </td> 
-                                <td style="text-align:right; padding: 2px; border: 1px solid black;">
-                                    <span t-esc="o.invoice_line_ids[0].siat_service_id.codigoActividad"/>
-                                </td> 
+                                
                             </tr>
                         </t>
                     </tbody>
@@ -178,6 +176,9 @@
                             <span t-field="o.legend_id.descripcionLeyenda"/>
                             <br/>
                             <span t-field="o.pos_id.emision_id.legend"/>
+                            <td style="text-align:right; padding: 2px; border: 1px solid black;">
+                                <span t-esc="o.invoice_line_ids[0].siat_service_id.codigoActividad"/>
+                            </td> 
                         </div>
                     </div>  
                 </div>
