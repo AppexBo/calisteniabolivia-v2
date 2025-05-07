@@ -14,7 +14,7 @@
                             <span t-field="o.pos_id.branch_office_id.name"/>
                             <br/>
                             <span>
-                                No.
+                                HOLA.
                                 <t t-esc="o.pos_id.name"/>
                             </span>
                             <br/>
