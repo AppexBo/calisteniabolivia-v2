@@ -120,7 +120,7 @@
                                 </div>
                                 <div t-if="o.journal_id.type == 'sale'" class="row" style="padding-right:50px;" >
                                     <strong>Glosa: </strong>
-                                    <span  t-if="o.narration" t-field="o.narration"  style="margin-left: 5px !important;" />
+                                    <span  t-if="o.ref" t-field="o.ref"  style="margin-left: 5px !important;" />
                                     <!--<span t-field="o.narration"/>-->
                                     <!--  Mostrar términos y condiciones si existen  
                                                         <span t-if="o.terms_and_conditions">
@@ -134,7 +134,7 @@
                                 </div>
                                 <div t-if="o.journal_id.type == 'purchase'" class="row" style="padding-right:50px;"  >
                                     <strong>Glosa: </strong>
-                                    <span t-if="o.narration"  t-field="o.narration"  style="margin-left: 5px !important;"  />
+                                    <span t-if="o.ref"  t-field="o.ref"  style="margin-left: 5px !important;"  />
                                     <!--  Mostrar términos y condiciones si existen 
                                                         <span t-if="o.terms_and_conditions">
                 /
