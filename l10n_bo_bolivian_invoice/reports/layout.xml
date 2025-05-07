@@ -31,7 +31,7 @@
                         <li>
                             <span class="page" />/
                             <span class="topage" />
-                            <span t-esc="o.codigo_actividad_siat"></span>
+                            <span >A1</span>
                         </li>
                     </ul>
                   
