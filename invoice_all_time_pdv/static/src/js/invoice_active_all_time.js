@@ -27,12 +27,12 @@ patch(Order.prototype, {
         if(invoice_button){
             // Verifica si el botón existe y no tiene las clases "highlight" o "text-bg-primary"
             if (invoice_button && !invoice_button.classList.contains('highlight') && !invoice_button.classList.contains('text-bg-primary')) {
-                //console.log("simulate click");
+                console.log("active invoice");
                 invoice_button.click();
             }
             //ocultar el boton siempre
             if(invoice_button && invoice_button.style.display === ''){
-                //console.log("simulate hide");
+                console.log("hide button invoice");
                 invoice_button.setAttribute('style', 'display: none !important;');
             }
         }
