@@ -34,7 +34,7 @@ patch(Order.prototype, {
                 }
                 //ocultar el boton siempre
                 console.log("hide button invoice");
-                invoice_button.setAttribute('style', 'display: none !important;');
+                //invoice_button.setAttribute('style', 'display: none !important;');
             }
         }
     }
