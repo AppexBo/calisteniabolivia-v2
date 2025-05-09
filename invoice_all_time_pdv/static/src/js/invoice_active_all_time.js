@@ -27,15 +27,13 @@ patch(Order.prototype, {
         if(invoice_button){
             //ocultar el boton siempre
             if(invoice_button && invoice_button.style.display === ''){
-                // Verifica si el botón existe y no tiene las clases "highlight" o "text-bg-primary"
-                //if (invoice_button && !invoice_button.classList.contains('highlight') && !invoice_button.classList.contains('text-bg-primary')) {
-                if (invoice_button && !invoice_button.classList.contains('highlight')) {
-                    console.log("active invoice");
+                // Verifica si el botón existe y no tiene las clases "highlight"
+                if (!invoice_button.classList.contains('highlight')) {
+                    //console.log("active invoice");
                     invoice_button.click();
-                    
                 }
                 //ocultar el boton siempre
-                console.log("hide button invoice");
+                //console.log("hide button invoice");
                 invoice_button.setAttribute('style', 'display: none !important;');
             }
         }
