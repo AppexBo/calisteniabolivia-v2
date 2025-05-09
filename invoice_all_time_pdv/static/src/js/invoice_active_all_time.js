@@ -28,16 +28,11 @@ patch(Order.prototype, {
             //ocultar el boton siempre
             if(invoice_button && invoice_button.style.display === ''){
                 // Verifica si el botón existe y no tiene las clases "highlight" o "text-bg-primary"
-                if (invoice_button && !invoice_button.classList.contains('highlight') && !invoice_button.classList.contains('text-bg-primary')) {
+                //if (invoice_button && !invoice_button.classList.contains('highlight') && !invoice_button.classList.contains('text-bg-primary')) {
                     console.log("active invoice");
-                    //invoice_button.click();
-                    const event = new MouseEvent('click', {
-                        view: window,
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    invoice_button.dispatchEvent(event);
-                }
+                    invoice_button.click();
+                    
+                //}
                 //ocultar el boton siempre
                 console.log("hide button invoice");
                 //invoice_button.setAttribute('style', 'display: none !important;');
